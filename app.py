@@ -8,6 +8,7 @@ import tensorflow as tf
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from paddleocr import PaddleOCR
 from PIL import Image
 import vertexai
@@ -15,7 +16,15 @@ from vertexai.preview.generative_models import GenerativeModel
 
 app = FastAPI()
 
-# Root route to check if the server is running
+# Tambahkan Middleware CORS di sini
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 async def root():
     return {"message": "Server is running!"}
