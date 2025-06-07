@@ -15,6 +15,11 @@ from vertexai.preview.generative_models import GenerativeModel
 
 app = FastAPI()
 
+# Root route to check if the server is running
+@app.get("/")
+async def root():
+    return {"message": "Server is running!"}
+
 model = tf.saved_model.load('saved_model')
 ocr = PaddleOCR(use_angle_cls=True, lang='id')
 
