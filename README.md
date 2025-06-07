@@ -54,6 +54,25 @@ Aplikasi akan berjalan di `http://0.0.0.0:8080`.
 ### 4. Dokumentasi API
 Buka dokumentasi API interaktif di `http://0.0.0.0:8080/docs` untuk mencoba endpoint yang tersedia.
 
+### 5. Jalankan Aplikasi Menggunakan Docker
+
+Pastikan Anda sudah menginstall Docker di komputer Anda. Ikuti langkah-langkah berikut untuk menjalankan aplikasi menggunakan Docker:
+
+1. **Build Docker Image**  
+    Jalankan perintah berikut untuk membangun image Docker:
+    ```bash
+    docker build -t tahuisi-backend .
+    ```
+
+2. **Jalankan Docker Container**  
+    Setelah image berhasil dibuat, jalankan container menggunakan perintah berikut:
+    ```bash
+    docker run -d -p 8080:8080 tahuisi-backend
+    ```
+
+3. **Akses Aplikasi**  
+    Aplikasi akan berjalan di `http://0.0.0.0:8080`. Anda juga dapat mengakses dokumentasi API di `http://0.0.0.0:8080/docs`.
+
 ## Deployment
 Aplikasi ini dapat dideploy menggunakan platform cloud seperti Google Cloud Platform (GCP) atau layanan container seperti Docker dan Kubernetes. Pastikan untuk mengatur variabel lingkungan yang diperlukan sebelum deployment.
 
