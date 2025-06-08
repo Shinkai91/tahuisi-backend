@@ -1,20 +1,13 @@
 runtime: python310
-
-# Entrypoint yang lebih robust dengan timeout
 entrypoint: uvicorn main:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 300 --timeout-graceful-shutdown 30
-
-# Instance class yang lebih powerful untuk ML workload
 instance_class: F4_1G
 
-# Scaling configuration
 automatic_scaling:
   target_cpu_utilization: 0.65
   min_instances: 1
   max_instances: 3
-  # Tambahkan timeout yang lebih panjang untuk startup ML models
   max_concurrent_requests: 80
 
-# Health check configuration untuk ML apps
 readiness_check:
   path: "/health"
   check_interval_sec: 5
@@ -31,25 +24,12 @@ liveness_check:
   success_threshold: 2
   initial_delay_sec: 300
 
-# Environment variables
 env_variables:
-  # Optimasi untuk TensorFlow
   TF_CPP_MIN_LOG_LEVEL: "2"
-  # Batasi memory usage TensorFlow
   TF_FORCE_GPU_ALLOW_GROWTH: "true"
-  # Optimasi untuk PaddleOCR
   USE_GPU: "false"
 
-# Resource limits (opsional)
-resources:
-  cpu: 1
-  memory_gb: 1
-  disk_size_gb: 10
-
-# Handlers
 handlers:
   - url: /.*
     script: auto
     secure: always
-    # Timeout yang lebih panjang untuk image processing
-    deadline: 60s
