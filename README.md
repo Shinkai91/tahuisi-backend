@@ -44,7 +44,7 @@ cd tahuisi-backend
 
 ### 2. Install Dependencies
 
-Pastikan Anda memiliki Python 3.8.0. Install dependencies menggunakan pip:
+Pastikan Anda memiliki Python 3.10.0. Install dependencies menggunakan pip:
 
 ```bash
 pip install -r requirements.txt
