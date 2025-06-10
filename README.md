@@ -85,6 +85,27 @@ Pastikan Anda sudah menginstall Docker di komputer Anda. Ikuti langkah-langkah b
 3. **Akses Aplikasi**  
    Aplikasi akan berjalan di `http://0.0.0.0:8080`. Anda juga dapat mengakses dokumentasi API di `http://0.0.0.0:8080/docs`.
 
+### 6. Jalankan Aplikasi Menggunakan Docker Hub
+
+Anda juga dapat menjalankan aplikasi langsung menggunakan image yang tersedia di Docker Hub. Ikuti langkah-langkah berikut:
+
+   1. **Pull Docker Image**  
+      Unduh image dari Docker Hub menggunakan perintah berikut:
+
+      ```bash
+      docker push yosia19/tahuisi-backend:v1.0
+      ```
+
+   2. **Jalankan Docker Container**  
+      Setelah image berhasil diunduh, jalankan container menggunakan perintah berikut:
+
+      ```bash
+      docker run -d -p 8080:8080 yosia19/tahuisi-backend:v1.0
+      ```
+
+   3. **Akses Aplikasi**  
+      Aplikasi akan berjalan di `http://0.0.0.0:8080`. Anda juga dapat mengakses dokumentasi API di `http://0.0.0.0:8080/docs`.
+
 ## Deployment
 
 Aplikasi ini dapat dideploy menggunakan platform cloud seperti Google Cloud Platform (GCP) atau layanan container seperti Docker dan Kubernetes. Pastikan untuk mengatur variabel lingkungan yang diperlukan sebelum deployment.
